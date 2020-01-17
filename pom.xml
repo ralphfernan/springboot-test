@@ -23,7 +23,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -74,6 +78,38 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>2.22.2</version>
+            <configuration>
+                    <includes>
+                        <include>**/*IT.java</include>
+                    </includes>
+                 <properties>
+                    <property>
+                        <name>surefire.testng.verbose</name>
+                        <value>0</value>
+                    </property>
+                    <property>
+                        <name>usedefaultlisteners</name>
+                        <value>true</value> <!-- disabling default listeners is optional -->
+                    </property>
+                </properties>
+                <!-- forkCount = 0 allows us to debug our integration tests -->
+                <forkCount>0</forkCount>
+                <!--<useSystemClassLoader>true</useSystemClassLoader>-->
+                <!--<useManifestOnlyJar>false</useManifestOnlyJar>-->
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>integration-test</goal>
+                        <goal>verify</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 		</plugins>
 	</build>
 
