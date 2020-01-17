@@ -1,4 +1,10 @@
 SpringBoot TestConfiguration Example
+# Branches/Configuration Options
+1. Using @TestConfiguration - see master
+2. Using application.properties - see branch spring-elasticsearch-config-options
+3. Note: other configuration options not covered, ex. spring-data-elasticsearch built-in properties.
+    
+
 # Rules:
 1. @SpringBootTest to create the ApplicationContext used in tests.
 2. Use a nested @TestConfiguration class to customize the primary configuration.
